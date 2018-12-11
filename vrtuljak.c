@@ -12,7 +12,6 @@
 #define MAX_SLEEP 5
 #define RIDE_DURATION 7
 
-int parent_pid;
 int moj_pid;
 
 int SemId;   /* identifikacijski broj skupa semafora */
@@ -47,8 +46,7 @@ void SemRemove(void)
 
 void exit_all(int signal){
     
-    if(getpid()==parent_pid)
-        SemRemove();
+    SemRemove();
     exit(0);
     
 }
@@ -92,8 +90,8 @@ void vrtuljak(int n){
 
 int main(){
     
-    parent_pid = getpid();
-    moj_pid = parent_pid;
+    moj_pid = getpid();
+    sigset(SIGINT,exit_all);
     
     int n; //broj mjesta na vrtuljku
     printf("Unesite broj mogucih mjesta na vrtuljku: ");
