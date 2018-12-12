@@ -195,7 +195,6 @@ int main(){
             printf("Greska pri stvaranju dretve!\n");
             exit_all();
         }
-        sleep(RAND);
     }
     
     //čekanje da filozofi završe

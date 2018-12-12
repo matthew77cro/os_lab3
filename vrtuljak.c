@@ -8,7 +8,7 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
-#define MIN_SLEEP 3 
+#define MIN_SLEEP 1 
 #define MAX_SLEEP 5
 #define RIDE_DURATION 7
 
