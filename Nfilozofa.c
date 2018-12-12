@@ -201,6 +201,9 @@ int main(){
     for(int i=0; i<n_filozofa; i++)
         pthread_join(thr_id[i], NULL);
     
+    //pricekaj za zadnji ispis kada nema vise nikoga i broj stapica je maksimalan
+    sleep(1);
+    
     exit_all();
     
     return 0;
