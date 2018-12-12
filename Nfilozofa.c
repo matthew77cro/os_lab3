@@ -5,6 +5,13 @@
 #include <pthread.h>
 #include <signal.h>
 #include <unistd.h>
+#include <time.h>
+
+#define MAX_RAND 5
+#define MIN_RAND 1
+#define RAND (rand()%(MAX_RAND-MIN_RAND+1)+MIN_RAND)
+
+int nr_ciklusa = 0;
 
 int n_filozofa = 0;
 int n_stapica = 0;
@@ -75,19 +82,20 @@ void m_spusti_stapice(int i){
 
 void misli(int i){
     misle[i]=1;
-    sleep(5);
+    sleep(RAND);
     misle[i]=0;
 }
 
 void jedi(int i){
     jedu[i]=1;
-    sleep(5);
+    sleep(RAND);
     jedu[i]=0;
 }
 
 void filozof(int* i){
     
-    while(1){
+    int k=0;
+    while(k<nr_ciklusa){
         
         //N.K.O.
         misli(*i);
@@ -98,6 +106,8 @@ void filozof(int* i){
         jedi(*i);
         
         m_spusti_stapice(*i);
+        
+        k++;
         
     }
     
@@ -143,6 +153,13 @@ void ispis(){
 int main(){
     
     sigset(SIGINT,exit_all);
+    
+    printf("Unesite broj ciklusa: \n");
+    scanf("%d", &nr_ciklusa);
+    if(nr_ciklusa<1){
+        printf("Broj ciklusa mora biti >= 1!\n");
+        exit_all();
+    }
     ucitaj_file();
     
     //Inicijalizacija monitorskog semafora
@@ -169,6 +186,7 @@ int main(){
         exit_all();
     }
     
+    srand(time(NULL));
     //stvaranje filozofa
     param = malloc(sizeof(int)*n_filozofa);
     for(int i=0; i<n_filozofa; i++){
@@ -177,7 +195,7 @@ int main(){
             printf("Greska pri stvaranju dretve!\n");
             exit_all();
         }
-        sleep(1);
+        sleep(RAND);
     }
     
     //čekanje da filozofi završe
