@@ -1,3 +1,0 @@
-N filozofa
-Zadatak
-Na konferenciji svih filozofa svemira okupilo se N filozofa iz različitih rasa. Životni ciklus filozofa je jesti-misliti i tijekom konferencije se ponavlja zadani broj puta (za sve filozofe jednaki broj puta). Za razliku od poznatog slučaja 5 filozofa, ovdje štapići stoje na sredini stola, ali zato u nekim rasama filozofi imaju više od dvije ruke (a da bi jeli u svakoj moraju držati štapić). Svaki filozof predstavljen je jednom dretvom. Riješite problem sinkronizacije koristeći monitore, ako je zadana datoteka s podacima o filozofima i štapićima (datoteka u prvom retku sadrži broj štapića i broj filozofa, a zatim u svakom sljedećem retku broj ruku pojedinog filozofa).
