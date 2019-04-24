@@ -1,0 +1,4 @@
+Modelirati vrtuljak s dva tip dretvi: dretvama posjetitelj (koje predstavljaju posjetitelje koji žele
+na vožnju) te dretvom vrtuljak koja predstavlja sam vrtuljak (upravljanje vrtuljkom). Dretvama
+posjetitelj se ne smije dozvoliti ukrcati na vrtuljak prije nego li prethodna grupa ode te kada
+više nema praznih mjesta (N), a pokretanje vrtuljka napraviti tek kada je pun.
